@@ -49,10 +49,17 @@ function deleteFolder(path) {
   if (fs.existsSync(path)) {
     fs.readdirSync(path).forEach(function (file) {
       const curPath = path + '/' + file
-      if (fs.statSync(curPath).isDirectory()) {
-        deleteFolder(curPath)
-      } else {
-        fs.unlinkSync(curPath)
+      if (fs.existsSync(curPath)) {
+        try {
+          if (fs.statSync(curPath).isDirectory()) {
+            deleteFolder(curPath)
+          } else {
+            fs.unlinkSync(curPath)
+          }
+        } catch (error) {
+          console.log(error)
+          process.exit()
+        }
       }
     })
     fs.rmdirSync(path)
