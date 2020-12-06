@@ -1,0 +1,24 @@
+{
+  "name": "delete-nm-cli",
+  "version": "1.0.0",
+  "description": "删除当前文件夹及子文件夹下所有的node_module目录",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "delete",
+    "cli",
+    "node_module"
+  ],
+  "author": "xiaofeihe",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^6.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  }
+}
