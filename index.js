@@ -15,7 +15,7 @@ program.on('--help', () => {})
 
 program
   .command('delete')
-  .description('删除当前目录以及子目录所有node_modules')
+  .description('删除当前目录以及一级子目录所有node_modules')
   .action(() => {
     console.log(chalk.blue('开始查找node_modules目录'))
     // spinner.start()
