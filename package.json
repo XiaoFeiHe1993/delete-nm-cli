@@ -20,5 +20,12 @@
     "hooks": {
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.15.0",
+    "eslint-config-alloy": "^3.8.2",
+    "eslint-plugin-vue": "^7.2.0",
+    "vue-eslint-parser": "^7.2.0"
   }
 }
