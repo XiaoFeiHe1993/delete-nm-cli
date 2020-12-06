@@ -1,20 +1,23 @@
 {
   "name": "delete-nm-cli",
   "version": "1.0.0",
-  "description": "删除当前文件夹及子文件夹下所有的node_module目录",
+  "description": "删除当前文件夹及一级子文件夹下所有的node_modules目录",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": "./index.js",
   "keywords": [
     "delete",
     "cli",
-    "node_module"
+    "node_modules"
   ],
   "author": "xiaofeihe",
   "license": "ISC",
   "dependencies": {
-    "commander": "^6.2.0"
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
+    "ora": "^5.1.0"
   },
   "husky": {
     "hooks": {
