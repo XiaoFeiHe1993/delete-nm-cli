@@ -5,20 +5,19 @@ const chalk = require('chalk')
  * 开始查找当前目录下面node_modules
  * @param {function} callback 
  */
-function startFindFile(callback) {
-  fs.readdir(process.cwd(), function (err, files) {
-    if (files && files.length > 0) {
-      // 当前目录
-      startDeleteFile(process.cwd())
-      // 子目录
-      files.forEach((item) => {
-        startDeleteFile(process.cwd() + '\\' + item)
-      })
-      callback()
-    } else {
-      callback()
-    }
-  })
+function startFindFile(path, callback) {
+  const files = fs.readdirSync(path)
+  if (files && files.length > 0) {
+    // 当前目录
+    startDeleteFile(path)
+    // 子目录
+    files.forEach((item) => {
+      startDeleteFile(path + '\\' + item)
+    })
+    callback && callback()
+  } else {
+    callback && callback()
+  }
 }
 
 /**
@@ -39,6 +38,9 @@ function startDeleteFile(path) {
       console.log(chalk.red('成功删除：' + subPath))
     }
   }
+  if (fs.existsSync(`${path}\\packages`)) { // 如果存在packages目录
+    startFindFile(`${path}\\packages`)
+  }
 }
 
 /**
@@ -57,8 +59,7 @@ function deleteFolder(path) {
             fs.unlinkSync(curPath)
           }
         } catch (error) {
-          console.log(error)
-          process.exit()
+          fs.unlinkSync(curPath)
         }
       }
     })

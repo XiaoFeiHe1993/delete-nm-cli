@@ -19,7 +19,7 @@ program
   .action(() => {
     console.log(chalk.blue('开始查找node_modules目录'))
     // spinner.start()
-    tool.startFindFile(function() {
+    tool.startFindFile(process.cwd(), function() {
       // spinner.stop()
       console.log(chalk.green('成功删除所有node_modules目录'))
     })

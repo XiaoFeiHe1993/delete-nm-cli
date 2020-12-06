@@ -1,6 +1,6 @@
 {
   "name": "delete-nm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "删除当前文件夹及一级子文件夹下所有的node_modules目录",
   "main": "index.js",
   "scripts": {
